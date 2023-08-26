@@ -28,3 +28,39 @@ rgb.addEventListener("click", function() {
     //use the random RGB color generated to update de streak of my canvas.
 });
 
+const canvas = document.getElementById("etchASketchCanvas");
+const context = canvas.getContext("2d");
+
+//Background color configuration
+context.fillStyle = "white";
+context.fillRect(0, 0, canvas.width, canvas.height);
+
+//Lead color configuration
+let currentColor = "black";
+context.strokeStyle = currentColor;
+
+//Drawing events
+let isDrawing = false;
+
+canvas.addEventListener("mousedown", startDrawing);
+canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("mouseup", stopDrawing);
+canvas.addEventListener("mouseout", stopDrawing);
+
+function startDrawing(e){
+    isDrawing = true;
+    context.beginPatch();
+    context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+}
+
+function draw(e){
+    if (!isDrawing) return;
+    context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+    context.strokeStyle();
+}
+
+function stopDrawing() {
+    isDrawing = false;
+    context.closePath();
+}
+
