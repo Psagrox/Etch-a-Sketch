@@ -1,4 +1,4 @@
-const colorPicker = document.getElementByID ("colorPicker");
+const colorPicker = document.getElementById ("colorPicker");
 
 
 colorPicker.addEventListener("input", function (e){
@@ -43,20 +43,20 @@ context.strokeStyle = currentColor;
 let isDrawing = false;
 
 canvas.addEventListener("mousedown", startDrawing);
-canvas.addEventListener("mousemove", draw);
+canvas.addEventListener("mouseleave", draw);
 canvas.addEventListener("mouseup", stopDrawing);
 canvas.addEventListener("mouseout", stopDrawing);
 
 function startDrawing(e){
     isDrawing = true;
-    context.beginPatch();
+    context.beginPath();
     context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
 }
 
 function draw(e){
     if (!isDrawing) return;
     context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-    context.strokeStyle();
+    context.stroke;
 }
 
 function stopDrawing() {
