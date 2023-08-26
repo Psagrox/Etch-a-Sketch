@@ -1,66 +1,22 @@
-const colorPicker = document.getElementById ("colorPicker");
+function populateBoard(size) {
+    let board = document.querySelector (".board");
+    let square = board.querySelectorAll("div");
+    square.forEach((div) => div.remove());
+    board.style.gridTemplateColumns = 'repeat(${size}, 1fr)';
+    board.style.gridTemplateRows = 'repeat(${size}, 1fr)';
 
 
-colorPicker.addEventListener("input", function (e){
-    const selectedColor = e.target.value;
-    //Use the variable selectedColor to register the option that the user choose.
-});
+    let amount = size * size;
 
-const rgb = document.getElementById("RGB");
-
-rgb.addEventListener("click", function() {
-    function generateNumber(number){
-        return Math.floor(Math.random()*number);
-    };
-
-    function rgbColor(){
-        var colorRgb = "rgb(" + 
-        generateNumber(255) + 
-        "," + 
-        generateNumber(255) + 
-        "," + 
-        generateNumber(255) + 
-        ")";
-        return colorRgb;
+    for(let i = 0; i < amount; i++){
+        let square = document.createElement("div");
+        square.style.backgroundColor = "red";
+        board.insertAdjacentElement("beforeend", square);
     }
+};
 
-    const radomColor = rgbColor();
-    //use the random RGB color generated to update de streak of my canvas.
-});
 
-const canvas = document.getElementById("etchASketchCanvas");
-const context = canvas.getContext("2d");
 
-//Background color configuration
-context.fillStyle = "white";
-context.fillRect(0, 0, canvas.width, canvas.height);
-
-//Lead color configuration
-let currentColor = "black";
-context.strokeStyle = currentColor;
-
-//Drawing events
-let isDrawing = false;
-
-canvas.addEventListener("mousedown", startDrawing);
-canvas.addEventListener("mouseleave", draw);
-canvas.addEventListener("mouseup", stopDrawing);
-canvas.addEventListener("mouseout", stopDrawing);
-
-function startDrawing(e){
-    isDrawing = true;
-    context.beginPath();
-    context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-}
-
-function draw(e){
-    if (!isDrawing) return;
-    context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-    context.stroke;
-}
-
-function stopDrawing() {
-    isDrawing = false;
-    context.closePath();
-}
-
+function changeSize(input){
+    populateBoard(input);
+};

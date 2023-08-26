@@ -4,20 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch a Sketch</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <div class="botonera">
-        <input type="color" id="colorPiker">  
-        <button id="RGB"> RGB </button>
-        <button id="grids"> Grid size </button>
-        <button id="reset"> Reset </button>
-    </div>
+   <div class="flex-container">
+   <div class="title"> <h1>Sketch Pad</h1></div>
+   <div class="board"></div>
+   <div class="buttons">
+        <button>Color</button>
+        <button>Random</button>
+        <button>Reset</button>
+   </div>
 
-    <canvas id="etchASketchCanvas" width="1000" height="1000"></canvas>
-
+   <div>
+        <input type="text" 
+        placeholder="Size of Board" 
+        onchange="changeSize(this.value)"
+        />
+        <button>Set Size</button>
+   </div>
+   </div>
 
     <div class="copyright">
         <h3> Copyright 2023 Psagrox </h3>
     </div>
 </body>
+<script src="script.js"></script>
 </html>
