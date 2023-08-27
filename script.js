@@ -1,9 +1,11 @@
+let color = "black";
 let colorPicker = document.getElementById ("colorPicker");
 
-colorPicker.addEventListener("input", function (e){
-    const choice =e.target.value;
-    //use the value selected to change the color of the lead
-})
+
+colorPicker.addEventListener("input",updateFirst, false);
+colorPicker.addEventListener("change", updateAll, false);
+colorPicker.selected();
+
 
 
 function populateBoard(size) {
@@ -39,9 +41,11 @@ function changeSize(input){
 
 function colorSquare (){
     this.style.backgroundColor = color;
+    console.log(color);
     //adding what color the function are going to use
 }
 
-function changeColor (choice) {
-    color = choice;
+function changeColor (colorPicker) {
+    color = colorPicker;
+    //update color
 }
