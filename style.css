@@ -1,5 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+
+
+.flex-container {
+    height: 80vh;
+    width: 80vw;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    background: linear-gradient(rgba(231, 238, 164, 0), white);
+}
+
 .board{
     width: 500px;
     height: 500px;
     display: grid;
+    background-color:  white;
+    box-shadow: rgba(38, 57, 77) 0px 20px 90px -10px;
+}
+
+.board:hover{
+    cursor: pointer;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    margin:  5%;
+    font-size: 30px;
+    font-weight: lighter;
+    position: relative;
+    -webkit-box-reflect: below -85px linear-gradient(transparent, rgba(0,0,0,.2));
+}
+
+.title span {
+    font-family: 'Alfa Slab One', cursive;
+    position: relative;
+    display: inline-block;
+    color: #443d3d;
+    animation: waviy 2s 5;
+    animation-delay: calc(5000s / var(--i));
+}
+
+@keyframes waviy {
+    0%, 40%, 100%{
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-20px);
+    }
+}
+
+.buttons {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding:  0.3em 1.2em;
+    margin: 0 0.5em 0.3em 0;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight:  600;
+    text-align: center;
+    background:  #141414;
+    color: #fff;
+    font-family: 'Roboto',sans-serif;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: .3s ease all;
+
+}
+
+button:hover{
+    background-color: rgb(92, 92, 84);
+    font-size: 25px;
+}
+
+
+#colorPicker {
+    margin-right: 20px;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    width: 60px;
+    height: 30px;
+}
+
+#colorPicker:hover {
+    width: 70px;
+    height: 40px;
+}
+
+
+.size input{
+    font-size:  20px;
+    width: 180px;
+}
+
+.size input:hover{
+    background-color: rgb(231, 231, 223);
+    
+}
+
+.copyright {
+    display: flex;
+    font-size: 10px;
+    font-family: 'Roboto',sans-serif;
+    color: #141414;
+    justify-content: center;
+    align-items: flex-end;
+    width: 80vw;
+}
+
+.copyright a{
+    color:#141414;
+    text-decoration: none;
 }

@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch a Sketch</title>
     <link rel="stylesheet" href="style.css"/>
+    <link rel="icon" href="brush.ico">
 </head>
 <body>
+    
    <div class="flex-container">
-   <div class="title"> <h1>Sketch Pad</h1></div>
+    <div class="title"> <h1><span>Etch a Sketch</span></h1></div>
    <div class="board"></div>
    <div class="buttons">
-        <input type="color" id="colorPicker" value="#0b2170">
-        <button>Random</button>
-        <button>Reset</button>
+        <input type="color" id="colorPicker" value="#0b2170" >
+        <button onclick="changeColor ('random')" class="one"><span>Random</span></button>
+        <button onclick="resetBoard()" id="two"><span>Reset</span></button>
    </div>
 
-   <div>
+   <div class="size">
         <input type="text" 
         placeholder="Size of Board" 
         onchange="changeSize(this.value)"
@@ -24,9 +26,11 @@
         <button>Set Size</button>
    </div>
    </div>
-
+   <div class="error"> 
+    Input must be between 2 and 100
+   </div>
     <div class="copyright">
-        <h3> Copyright 2023 Psagrox </h3>
+        <a href="https://github.com/Psagrox"> Copyright 2023 Psagrox </a>
     </div>
 </body>
 <script src="script.js"></script>
