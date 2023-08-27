@@ -6,7 +6,12 @@ colorPicker.addEventListener("input",updateFirst, false);
 colorPicker.addEventListener("change", updateAll, false);
 colorPicker.selected();
 
-
+colorPicker.addEventListener("input",function (e){
+    console.log("triged");
+    const choice = e.target.value;
+    changeColor(choice);
+    console.log(e);
+})
 
 function populateBoard(size) {
     let board = document.querySelector (".board");
@@ -45,7 +50,7 @@ function colorSquare (){
     //adding what color the function are going to use
 }
 
-function changeColor (colorPicker) {
-    color = colorPicker;
+function changeColor (choice) {
+    color = choice;
     //update color
 }
