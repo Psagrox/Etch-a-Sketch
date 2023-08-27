@@ -2,16 +2,7 @@ let color = "black";
 let colorPicker = document.getElementById ("colorPicker");
 
 
-colorPicker.addEventListener("input",updateFirst, false);
-colorPicker.addEventListener("change", updateAll, false);
-colorPicker.selected();
-
-colorPicker.addEventListener("input",function (e){
-    console.log("triged");
-    const choice = e.target.value;
-    changeColor(choice);
-    console.log(e);
-})
+colorPicker.oninput = (e) => changeColor (e.target.value);
 
 function populateBoard(size) {
     let board = document.querySelector (".board");
